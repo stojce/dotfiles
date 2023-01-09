@@ -20,10 +20,16 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+    docker
+    fish
     bottom
     wget
     jq
     du-dust
+    git-crypt
+    direnv
+    geany
+    terraform
   ];
   
 }
