@@ -18,18 +18,61 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.bat.enable = true;
+  programs.bat.config.theme = "OneHalfDark";
+  programs.dircolors.enable = true;
+  programs.dircolors.enableFishIntegration = true;
+
+  programs.fish.enable = true;
+  #programs.fish.shellAliases = (import ./modules/aliases.nix);
+
+  programs.fish.shellAliases = {
+    g = "git";
+    "..." = "cd ../..";
+    "hm" = "pushd ~/.config/nixpkgs;  home-manager switch; popd";
+    "gl" = "git pull";
+    "gpf!" = "git push --force";
+    "cl" = "/usr/local/bin/codium .";
+    "ci" = "/usr/local/bin/codium-insiders .";
+    "ga" = "git add";
+    "gp" = "git push";
+    "gaa" = "git add --all";
+    "l" = "ls -lah";
+    "la" = "ls -lAh";
+    "ll" = "ls -lh";
+    "ls" = "ls -G";
+    "lsa" = "ls -lah";
+    "md" = "mkdir -p";
+    "gss" = "git status -s";
+    "gst" = "git status";
+  };
+
+  programs.git.enable = true;
+
+  programs.direnv.enable = true;
+  #programs.direnv.enableFishIntegration = true;
+
+  programs.starship.enable = true;
+  programs.starship.enableFishIntegration = true;
+
+  #programs.kitty.enable = true;
+
+  targets.darwin.defaults."com.apple.Safari".IncludeDevelopMenu = true;
+  targets.darwin.search = "DuckDuckGo";
 
   home.packages = with pkgs; [
     docker
-    fish
     bottom
     wget
     jq
     du-dust
     git-crypt
-    direnv
-    geany
-    terraform
-  ];
-  
+    neovim
+    fzf
+    awscli
+    jetbrains-mono
+    zellij
+];
+
+  fonts.fontconfig.enable = true;
 }
