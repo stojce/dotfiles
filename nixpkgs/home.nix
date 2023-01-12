@@ -36,6 +36,9 @@
     "ci" = "/usr/local/bin/codium-insiders .";
     "ga" = "git add";
     "gp" = "git push";
+    "gcs" = "git commit -S";
+    "gcss" = "git commit -S -s";
+    "gcssm" = "git commit -S -s -m";
     "gaa" = "git add --all";
     "l" = "ls -lah";
     "la" = "ls -lAh";
