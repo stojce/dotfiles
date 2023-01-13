@@ -64,6 +64,7 @@
   targets.darwin.search = "DuckDuckGo";
 
   home.packages = with pkgs; [
+    gettext
     gnupg
     pinentry_mac
     docker
