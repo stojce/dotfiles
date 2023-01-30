@@ -48,6 +48,8 @@
     "md" = "mkdir -p";
     "gss" = "git status -s";
     "gst" = "git status";
+    "r" = "ranger";
+    "s" = "kitty +kitten ssh";
   };
 
   programs.git.enable = true;
@@ -64,10 +66,12 @@
   targets.darwin.search = "DuckDuckGo";
 
   home.packages = with pkgs; [
+    ranger
+    mosh
+    imagemagick
     gettext
     gnupg
     pinentry_mac
-    docker
     bottom
     wget
     jq
