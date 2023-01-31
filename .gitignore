@@ -1,3 +1,6 @@
 .DS_Store
 iterm2
 nixpkgs/result
+infracost/.state.json
+fontconfig/*
+fish/conf.d/*
