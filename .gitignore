@@ -4,3 +4,8 @@ nixpkgs/result
 infracost/.state.json
 fontconfig/*
 fish/conf.d/*
+containers/*
+*.backup
+fish/*
+pgcli
+yarn

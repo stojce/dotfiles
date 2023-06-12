@@ -1,2 +1,3 @@
 credentials.yml filter=git-crypt diff=git-crypt
 exercism/user.json filter=git-crypt diff=git-crypt
+sourcery/auth.yaml filter=git-crypt diff=git-crypt

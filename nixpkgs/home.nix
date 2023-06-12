@@ -14,7 +14,7 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.05";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -33,7 +33,6 @@
     "gl" = "git pull";
     "gpf!" = "git push --force";
     "cl" = "/usr/local/bin/codium .";
-    "ci" = "/usr/local/bin/codium-insiders .";
     "ga" = "git add";
     "gp" = "git push";
     "gcs" = "git commit -S";
@@ -49,23 +48,37 @@
     "gss" = "git status -s";
     "gst" = "git status";
     "r" = "ranger";
-    "s" = "kitty +kitten ssh";
+    "nfu" = "sudo -i sh -c 'nix-channel --update && nix-env -iA nixpkgs.nix && launchctl remove org.nixos.nix-daemon && launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist'";
   };
 
   programs.git.enable = true;
 
   programs.direnv.enable = true;
-  #programs.direnv.enableFishIntegration = true;
+  programs.direnv.enableFishIntegration = true;
 
   programs.starship.enable = true;
   programs.starship.enableFishIntegration = true;
-
-  #programs.kitty.enable = true;
 
   targets.darwin.defaults."com.apple.Safari".IncludeDevelopMenu = true;
   targets.darwin.search = "DuckDuckGo";
 
   home.packages = with pkgs; [
+    # TEMP
+    mono
+    # TEMP
+    babelfish
+    qemu
+    podman
+    podman-compose
+    podman-tui
+    utm
+    # UTM ISO buildPackages
+    aria
+    cabextract
+    wimlib
+    chntpw
+    cdrtools
+    #^
     ranger
     mosh
     imagemagick
@@ -77,12 +90,19 @@
     jq
     du-dust
     git-crypt
+    git-lfs
+    pre-commit
     neovim
     fzf
     awscli
     jetbrains-mono
+    fira-code
     zellij
 ];
 
   fonts.fontconfig.enable = true;
+
+  # Auto upgrade nix package and the daemon service.
+  services.nix-daemon.enable = true;
+  nix.package = pkgs.nix;
 }
