@@ -13,8 +13,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.05"; # Please read the comment before changing.
-
+  home.stateVersion = "23.11"; # Please read the comment before changing.
 
   programs.bat.enable = true;
   programs.bat.config.theme = "OneHalfDark";
@@ -22,14 +21,17 @@
   programs.dircolors.enableFishIntegration = true;
 
   programs.fish.enable = true;
-
   programs.fish.shellAliases = {
+    k="kubectl";
+    kl="kubectl logs";
+    kg="kubectl get";
+    kga="kubectl get all";
     g = "git";
     "..." = "cd ../..";
     "hm" = "pushd ~/.config/nixpkgs;  home-manager switch; popd";
     "gl" = "git pull";
     "gpf!" = "git push --force";
-    "cl" = "/usr/local/bin/codium .";
+    "cl" = "codium .";
     "ga" = "git add";
     "gp" = "git push";
     "gcs" = "git commit -S";
@@ -39,7 +41,6 @@
     "l" = "ls -lah";
     "la" = "ls -lAh";
     "ll" = "ls -lh";
-    "ls" = "ls -G";
     "lsa" = "ls -lah";
     "md" = "mkdir -p";
     "gss" = "git status -s";
@@ -51,32 +52,41 @@
   programs.git.enable = true;
 
   programs.direnv.enable = true;
-  # programs.direnv.enableFishIntegration = true;
+  #programs.direnv.enableFishIntegration = true;
 
-  programs.starship.enable = true;
-  programs.starship.enableFishIntegration = true;
+  #programs.starship.enable = true;
+  #programs.starship.enableFishIntegration = true;
 
-  targets.darwin.defaults."com.apple.Safari".IncludeDevelopMenu = true;
+  # targets.darwin.defaults."com.apple.Safari".IncludeDevelopMenu = true;
   targets.darwin.search = "DuckDuckGo";
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-
+    ansible
+    vscodium
+    colima
+    toybox
     mosh
+    fd
+    ripgrep
     
     git-crypt
     git-lfs
+    lazygit
     pre-commit
     wget
     jq
     du-dust
   
-    neovim
+    #neovim
     jetbrains-mono
     fira-code
-    zellij
+    #zellij
 
+    gnupg
+    pinentry_mac
+    
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -85,7 +95,7 @@
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
-    (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
