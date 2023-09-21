@@ -59,25 +59,29 @@
 
   # targets.darwin.defaults."com.apple.Safari".IncludeDevelopMenu = true;
   targets.darwin.search = "DuckDuckGo";
-
+ 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    htop
+    toybox
+    fd
+    ripgrep
+    wget
+    du-dust
+
+    iterm2
     ansible
     vscodium
     colima
-    toybox
+    docker-client
     mosh
-    fd
-    ripgrep
     
     git-crypt
     git-lfs
     lazygit
     pre-commit
-    wget
     jq
-    du-dust
   
     #neovim
     jetbrains-mono
