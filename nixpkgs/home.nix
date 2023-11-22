@@ -94,7 +94,7 @@
     pre-commit
     neovim
     fzf
-    awscli
+    awscli2
     jetbrains-mono
     fira-code
     zellij

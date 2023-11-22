@@ -69,21 +69,25 @@
     ripgrep
     wget
     du-dust
-
+    rclone
     iterm2
     ansible
     vscodium
+    neovim
     colima
     docker-client
     mosh
-    
+    awscli2
+    nodejs_18
+    rustup
+    cargo-generate
+
+    gh
     git-crypt
     git-lfs
     lazygit
     pre-commit
     jq
-  
-    #neovim
     jetbrains-mono
     fira-code
     #zellij
